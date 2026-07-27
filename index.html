@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Apoio | Conecta Estudante</title>
+    <title>Portal de Apoio | Piratas do Ki</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #f0f4f8;
-            --card-bg: #ffffff;
-            --text-color: #2b2d42;
-            --primary: #ff477e;
-            --secondary: #7000ff;
-            --accent: #ffb703;
-            --border: #e2e8f0;
+            --bg-color: #0b132b;
+            --card-bg: rgba(28, 37, 65, 0.95);
+            --text-color: #ffffff;
+            --dbz-orange: #ff6b00;
+            --dbz-yellow: #ffb703;
+            --pirate-gold: #ffd700;
+            --sea-blue: #00b4d8;
+            --border: #ff6b00;
             --font-main: 'Nunito', sans-serif;
-            --font-title: 'Fredoka', cursive;
+            --font-title: 'Bangers', cursive;
         }
 
         .dark-mode {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
-            --primary: #ff5c8d;
-            --secondary: #9d4edd;
-            --border: #334155;
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.95);
+            --text-color: #f3f4f6;
+            --dbz-orange: #d97706;
+            --border: #b45309;
         }
 
         * {
@@ -39,13 +39,19 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
+            /* Imagem de fundo temática combinando Saiyajins e Piratas */
+            background-image: radial-gradient(circle at top right, rgba(255, 107, 0, 0.15), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.15), transparent 40%),
+                              url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=80');
+            background-attachment: fixed;
+            background-size: cover;
             transition: all 0.3s ease;
         }
 
         /* HEADER E NAVEGAÇÃO */
         header {
-            background: var(--card-bg);
-            border-bottom: 3px solid var(--secondary);
+            background: rgba(11, 19, 43, 0.95);
+            border-bottom: 4px solid var(--dbz-orange);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,13 +59,15 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
         }
 
         .logo {
             font-family: var(--font-title);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--dbz-yellow);
+            text-shadow: 2px 2px 0px #000, -2px -2px 0px var(--dbz-orange);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -68,31 +76,38 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.2rem;
+            gap: 1rem;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 800;
+            color: #fff;
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
             padding: 0.4rem 0.8rem;
-            border-radius: 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.3);
             transition: all 0.2s;
         }
 
         nav a:hover {
-            background-color: var(--secondary);
-            color: #fff;
+            background: var(--dbz-orange);
+            color: #000;
+            box-shadow: 0 0 10px var(--dbz-yellow);
         }
 
         .accessibility-controls button {
-            background: var(--bg-color);
-            border: 2px solid var(--border);
-            color: var(--text-color);
+            background: var(--dbz-orange);
+            border: 2px solid #000;
+            color: #000;
             padding: 0.5rem 0.8rem;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
+            font-family: var(--font-title);
+            font-size: 1.1rem;
         }
 
         /* CONTAINER PRINCIPAL */
@@ -105,39 +120,70 @@
         section {
             background: var(--card-bg);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2.5rem;
-            border: 2px solid var(--border);
+            border: 3px solid var(--dbz-orange);
             position: relative;
-            box-shadow: 0 8px 0px var(--border);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* PERSONAGENS EM SEGUNDO PLANO (BACKGROUND) */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            opacity: 0.08;
+            pointer-events: none;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+
+        #inicio::before {
+            /* Goku / Shenlong Style */
+            background-image: url('https://pngimg.com/uploads/dragon_ball/dragon_ball_PNG28.png');
+        }
+
+        #conexao::before {
+            /* Caveira Pirata / Jolly Roger Style */
+            background-image: url('https://pngimg.com/uploads/pirates/pirates_PNG31.png');
+        }
+
+        #mural::before {
+            /* Esferas do Dragão */
+            background-image: url('https://pngimg.com/uploads/dragon_ball/dragon_ball_PNG38.png');
         }
 
         h2 {
             font-family: var(--font-title);
-            font-size: 1.8rem;
-            color: var(--secondary);
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            color: var(--dbz-yellow);
+            text-shadow: 2px 2px 0px #000;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        /* ADESIVOS / STICKERS DESTAQUE */
+        /* ADESIVOS / BADGES ANIME & PIRATA */
         .sticker {
             position: absolute;
-            background: var(--accent);
+            background: var(--pirate-gold);
             color: #000;
             font-family: var(--font-title);
-            font-weight: 700;
-            padding: 0.4rem 1rem;
+            font-size: 1.1rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            box-shadow: 2px 2px 0px #000;
-            transform: rotate(-5deg);
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px var(--dbz-orange);
+            transform: rotate(-4deg);
+            z-index: 10;
         }
 
         .sticker-top-right {
-            top: -12px;
+            top: 15px;
             right: 20px;
         }
 
@@ -146,43 +192,54 @@
             display: flex;
             align-items: center;
             gap: 2rem;
-            background: linear-gradient(135deg, rgba(112, 0, 255, 0.1), rgba(255, 71, 126, 0.1));
         }
 
         .hero-text h1 {
             font-family: var(--font-title);
-            font-size: 2.2rem;
-            color: var(--primary);
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: var(--dbz-orange);
+            text-shadow: 2px 2px 0px #000;
             margin-bottom: 1rem;
         }
 
         .hero-img img {
             width: 100%;
             border-radius: 15px;
-            border: 3px solid var(--text-color);
+            border: 4px solid var(--pirate-gold);
+            box-shadow: 0 0 20px var(--dbz-orange);
         }
 
-        /* CARDS DE CONEXÃO */
+        /* CARDS ESTILO TESOURO / KI */
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .card-item {
-            background: var(--bg-color);
+            background: rgba(11, 19, 43, 0.8);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 2px solid var(--border);
-            transition: transform 0.2s;
+            border: 2px solid var(--sea-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 15px var(--sea-blue);
+            border-color: var(--dbz-yellow);
         }
 
-        /* MURAL POST-IT INTERATIVO */
+        .card-item h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--dbz-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        /* MURAL TIPO MAPA DO TESOURO */
         .mural-container {
             display: flex;
             flex-direction: column;
@@ -197,10 +254,11 @@
         .mural-form input {
             flex: 1;
             padding: 0.8rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-            background: var(--bg-color);
-            color: var(--text-color);
+            border-radius: 10px;
+            border: 2px solid var(--dbz-orange);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1rem;
         }
 
         .mural-posts {
@@ -210,38 +268,41 @@
         }
 
         .post-it {
-            background: #ffea00;
+            background: #ffe169;
             color: #000;
-            padding: 1rem;
-            border-radius: 5px;
-            font-weight: 700;
-            width: 180px;
-            min-height: 100px;
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
-            transform: rotate(-2deg);
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-weight: 800;
+            width: 200px;
+            min-height: 110px;
+            border: 2px solid #b5838d;
+            box-shadow: 5px 5px 0px #000;
+            transform: rotate(-3deg);
         }
 
         .post-it:nth-child(even) {
-            background: #00f5d4;
-            transform: rotate(3deg);
+            background: #ff9e00;
+            transform: rotate(2deg);
         }
 
         /* BOTÕES ESTILIZADOS */
         .btn {
-            background: var(--primary);
-            color: white;
-            font-weight: 800;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 12px;
+            background: var(--dbz-orange);
+            color: #000;
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid #000;
+            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 4px 0px var(--secondary);
+            box-shadow: 4px 4px 0px #000;
             transition: all 0.1s;
         }
 
-        .btn:active {
-            transform: translateY(3px);
-            box-shadow: none;
+        .btn:hover {
+            background: var(--dbz-yellow);
+            box-shadow: 2px 2px 0px #000;
         }
 
         /* BOTÃO VOLTAR AO TOPO */
@@ -250,21 +311,23 @@
             bottom: 20px;
             right: 20px;
             display: none;
-            background: var(--primary);
-            color: white;
-            border: none;
+            background: var(--dbz-orange);
+            color: #000;
+            border: 2px solid #000;
             padding: 0.8rem 1rem;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 0px #000;
+            font-size: 1.5rem;
+            box-shadow: 3px 3px 0px #000;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            font-weight: bold;
-            opacity: 0.8;
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--dbz-yellow);
+            text-shadow: 1px 1px 0px #000;
         }
 
         @media (max-width: 768px) {
@@ -277,114 +340,114 @@
 
     <header>
         <div class="logo">
-            <i class="fa-solid fa-bolt"></i> CONECTA ESTUDANTE
+            <i class="fa-solid fa-skull-crossbones"></i> PIRATAS DO KI <i class="fa-solid fa-dragon"></i>
         </div>
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#conexao">Espaço Conexão</a></li>
-                <li><a href="#mural">Mural da Turma</a></li>
-                <li><a href="#guia">Guia Real</a></li>
+                <li><a href="#conexao">Treino de Ki</a></li>
+                <li><a href="#mural">Mural do Bando</a></li>
+                <li><a href="#guia">Mapa de Ajuda</a></li>
                 <li><a href="#fontes">Fontes</a></li>
             </ul>
         </nav>
         <div class="accessibility-controls">
-            <button id="btn-theme"><i class="fa-solid fa-moon"></i></button>
-            <button id="btn-font">A+</button>
+            <button id="btn-theme" title="Modo Noturno"><i class="fa-solid fa-moon"></i></button>
+            <button id="btn-font" title="Aumentar Fonte">A+</button>
         </div>
     </header>
 
     <main>
         <section id="inicio" class="hero">
-            <span class="sticker sticker-top-right">✨ 100% Livre de Julgamento</span>
+            <span class="sticker sticker-top-right">🏴‍☠️ Nível do Ki: Mais de 8000!</span>
             <div class="hero-text">
-                <h1>Seu espaço de apoio na rotina escolar</h1>
-                <p>O ambiente de estudos pode ser puxado, mas ninguém precisa encarar isso sozinho. Aqui você encontra ideias práticas de empatia, apoio mútuo e orientações de verdade.</p>
+                <h1>Eleve seu Ki e Navegue em Segurança!</h1>
+                <p>O ambiente escolar pode parecer uma grande aventura cheia de desafios, mas nenhum tripulante navega sozinho. Encontre aqui o apoio necessário para fortalecer sua jornada!</p>
             </div>
             <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Estudantes unidos">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80" alt="Caravela Pirata nos Mares">
             </div>
         </section>
 
         <section id="conexao">
-            <span class="sticker sticker-top-right">💡 Boa Convivência</span>
-            <h2><i class="fa-solid fa-handshake-angle"></i> Espaço Conexão</h2>
-            <p>Atitudes simples transformam a convivência na escola. Confira como fazer a diferença:</p>
+            <span class="sticker sticker-top-right">🐉 Código de Honra</span>
+            <h2><i class="fa-solid fa-fire-flame-curved"></i> Treino de Convivência & Empatia</h2>
+            <p>Atitudes de um verdadeiro Guerreiro Saiyajin da tripulação:</p>
             
             <div class="grid-cards">
                 <div class="card-item">
-                    <h3>🤝 Escuta Ativa</h3>
-                    <p>Quando um colega quiser conversar, apenas ouça sem dar palpites precipitados ou diminuir o problema dele.</p>
+                    <h3>🛡️ União do Bando</h3>
+                    <p>Um verdadeiro capitão não deixa nenhum companheiro para trás. Apoie quem estiver passando por momentos difíceis.</p>
                 </div>
                 <div class="card-item">
-                    <h3>🚫 Zero Bullying</h3>
-                    <p>Piadas repetitivas que incomodam o outro não são brincadeiras. Respeito às diferenças fortalece a turma inteira.</p>
+                    <h3>⚔️ Combate ao Bullying</h3>
+                    <p>Usar sua força para diminuir os outros não te faz um guerreiro poderoso. Respeite as diferenças da turma!</p>
                 </div>
                 <div class="card-item">
-                    <h3>⚡ Limites Saudáveis</h3>
-                    <p>Saber dizer 'não' para tarefas acumuladas e organizar horários de descanso é essencial para sua mente.</p>
+                    <h3>⚡ Descanso do Guerreiro</h3>
+                    <p>Até mesmo os maiores lutadores precisam recarregar a energia. Faça pausas e cuide da sua mente nos estudos.</p>
                 </div>
             </div>
         </section>
 
         <section id="mural">
-            <span class="sticker sticker-top-right">📌 Interativo</span>
-            <h2><i class="fa-solid fa-note-sticky"></i> Mural do Apoio</h2>
-            <p>Deixe um recado motivacional ou uma dica positiva para outros estudantes da escola:</p>
+            <span class="sticker sticker-top-right">💎 Mensagens de Ouro</span>
+            <h2><i class="fa-solid fa-scroll"></i> Mural do Bando</h2>
+            <p>Deixe uma mensagem motivacional para dar aquele upgrade no Ki dos seus colegas:</p>
             <br>
             <div class="mural-container">
                 <form class="mural-form" id="form-mural">
-                    <input type="text" id="input-post" placeholder="Escreva um recado positivo..." required>
-                    <button type="submit" class="btn">Colar Recado</button>
+                    <input type="text" id="input-post" placeholder="Escreva uma mensagem motivacional..." required>
+                    <button type="submit" class="btn">Lançar Mensagem</button>
                 </form>
 
                 <div class="mural-posts" id="posts-container">
-                    <div class="post-it">"Você é capaz de superar essa semana de provas!"</div>
-                    <div class="post-it">"Lembre-se de beber água e descansar hoje!"</div>
+                    <div class="post-it">"Confie no seu potencial, você vai detonar nas provas!"</div>
+                    <div class="post-it">"Carregue seu Ki e lembre-se de descansar!"</div>
                 </div>
             </div>
         </section>
 
         <section id="guia">
-            <span class="sticker sticker-top-right">🆘 Ajuda Real</span>
-            <h2><i class="fa-solid fa-compass"></i> Guia Prático de Apoio</h2>
-            <p>Precisando de ajuda ou orientação fora da internet? Procure estes caminhos:</p>
+            <span class="sticker sticker-top-right">🧭 Rota Segura</span>
+            <h2><i class="fa-solid fa-compass"></i> Mapa de Ajuda na Vida Real</h2>
+            <p>Encontrou tempestades pelo caminho? Saiba onde buscar porto seguro:</p>
             <br>
             <div class="grid-cards">
                 <div class="card-item">
-                    <h3>🏫 Na Escola</h3>
-                    <p>Procure a equipe pedagógica, direção ou um professor de confiança para conversar com total sigilo.</p>
+                    <h3>🏫 MESTRES DA ESCOLA</h3>
+                    <p>Converse com professores, pedagogos ou direção. Eles são os guias da sua jornada escolar.</p>
                 </div>
                 <div class="card-item">
-                    <h3>📞 Ligação Gratuita</h3>
-                    <p><strong>CVV (Centro de Valorização da Vida):</strong> Disque <strong>188</strong> a qualquer hora para conversa confiável.</p>
+                    <h3>📞 SINAL DE FUMAÇA (CVV)</h3>
+                    <p>Ligue <strong>188</strong> (Centro de Valorização da Vida). Atendimento gratuito, anônimo e disponível 24h.</p>
                 </div>
                 <div class="card-item">
-                    <h3>🏠 Em Casa</h3>
-                    <p>Converse com seus pais ou um responsável adulto com quem você se sinta confortável.</p>
+                    <h3>🏠 PORTO FAMILIAR</h3>
+                    <p>Abra o jogo com seus pais ou com um adulto da família em quem você realmente confia.</p>
                 </div>
             </div>
         </section>
 
         <section id="fontes">
-            <h2><i class="fa-solid fa-link"></i> Fontes Confiáveis</h2>
-            <ul style="list-style-type: square; margin-left: 1.5rem; line-height: 2;">
-                <li><a href="https://www.gov.br/saude/pt-br" target="_blank" style="color: var(--primary); font-weight: bold;">Ministério da Saúde</a></li>
-                <li><a href="https://www.unicef.org/brazil/" target="_blank" style="color: var(--primary); font-weight: bold;">UNICEF Brasil</a></li>
-                <li><a href="https://cvv.org.br/" target="_blank" style="color: var(--primary); font-weight: bold;">CVV - Apoio Emocional</a></li>
+            <h2><i class="fa-solid fa-anchor"></i> Fontes Confiáveis</h2>
+            <ul style="list-style-type: none; line-height: 2.2;">
+                <li><a href="https://www.gov.br/saude/pt-br" target="_blank" style="color: var(--dbz-yellow); font-weight: bold; text-decoration: none;"><i class="fa-solid fa-gem"></i> Ministério da Saúde (Brasil)</a></li>
+                <li><a href="https://www.unicef.org/brazil/" target="_blank" style="color: var(--dbz-yellow); font-weight: bold; text-decoration: none;"><i class="fa-solid fa-gem"></i> UNICEF Brasil - Saúde Mental</a></li>
+                <li><a href="https://cvv.org.br/" target="_blank" style="color: var(--dbz-yellow); font-weight: bold; text-decoration: none;"><i class="fa-solid fa-gem"></i> CVV - Centro de Valorização da Vida</a></li>
             </ul>
         </section>
     </main>
 
-    <button id="btn-top"><i class="fa-solid fa-arrow-up"></i></button>
+    <button id="btn-top"><i class="fa-solid fa-dragon"></i></button>
 
     <footer>
-        <p>© 2026 Conecta Estudante - Projeto Escolar</p>
+        <p>© 2026 Piratas do Ki - Projeto Educacional | Viva a Aventura com Respeito!</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Alternar Modo Escuro
+            // Alternar Modo Noturno
             const btnTheme = document.getElementById('btn-theme');
             btnTheme.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
@@ -398,7 +461,7 @@
                 grande = !grande;
             });
 
-            // Adicionar Recado ao Mural Interativo
+            // Mural Interativo
             const formMural = document.getElementById('form-mural');
             const inputPost = document.getElementById('input-post');
             const postsContainer = document.getElementById('posts-container');
