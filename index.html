@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mente Em Foco | Portal de Apoio ao Estudante</title>
+    <title>Portal de Apoio | Conecta Estudante</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #f4f7f6;
+            --bg-color: #f0f4f8;
             --card-bg: #ffffff;
-            --text-color: #333333;
-            --primary-color: #4a90e2;
-            --secondary-color: #2c3e50;
-            --border-color: #e0e0e0;
-            --font-size: 16px;
+            --text-color: #2b2d42;
+            --primary: #ff477e;
+            --secondary: #7000ff;
+            --accent: #ffb703;
+            --border: #e2e8f0;
+            --font-main: 'Nunito', sans-serif;
+            --font-title: 'Fredoka', cursive;
         }
 
         .dark-mode {
-            --bg-color: #1a1a2e;
-            --card-bg: #16213e;
-            --text-color: #e0e0e0;
-            --primary-color: #0f3460;
-            --secondary-color: #e94560;
-            --border-color: #2a2a4a;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --primary: #ff5c8d;
+            --secondary: #9d4edd;
+            --border: #334155;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-main);
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-size: var(--font-size);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
 
+        /* HEADER E NAVEGAÇÃO */
         header {
-            background-color: var(--card-bg);
-            border-bottom: 2px solid var(--border-color);
+            background: var(--card-bg);
+            border-bottom: 3px solid var(--secondary);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,210 +56,220 @@
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
-            font-weight: 600;
-            transition: color 0.2s;
+            font-weight: 800;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            transition: all 0.2s;
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            background-color: var(--secondary);
+            color: #fff;
         }
 
         .accessibility-controls button {
-            background: none;
-            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            border: 2px solid var(--border);
             color: var(--text-color);
-            padding: 0.5rem;
+            padding: 0.5rem 0.8rem;
             cursor: pointer;
-            border-radius: 5px;
-            margin-left: 0.5rem;
+            border-radius: 10px;
+            font-weight: bold;
         }
 
+        /* CONTAINER PRINCIPAL */
         main {
             max-width: 1000px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        hr {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
-            margin: 3rem 0;
-        }
-
-        .content-section {
-            background-color: var(--card-bg);
+        section {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            border: 2px solid var(--border);
+            position: relative;
+            box-shadow: 0 8px 0px var(--border);
         }
 
-        .hero-section {
+        h2 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ADESIVOS / STICKERS DESTAQUE */
+        .sticker {
+            position: absolute;
+            background: var(--accent);
+            color: #000;
+            font-family: var(--font-title);
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            box-shadow: 2px 2px 0px #000;
+            transform: rotate(-5deg);
+        }
+
+        .sticker-top-right {
+            top: -12px;
+            right: 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
             display: flex;
             align-items: center;
             gap: 2rem;
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.1), rgba(255, 71, 126, 0.1));
         }
 
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 2rem;
+        .hero-text h1 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--primary);
             margin-bottom: 1rem;
-            color: var(--primary-color);
         }
 
-        .hero-image {
-            flex: 1;
-        }
-
-        .hero-image img {
+        .hero-img img {
             width: 100%;
-            border-radius: 10px;
-            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--text-color);
         }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
+        /* CARDS DE CONEXÃO */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 1rem;
-            transition: opacity 0.2s;
         }
 
-        .btn-primary:hover {
-            opacity: 0.9;
+        .card-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border);
+            transition: transform 0.2s;
         }
 
-        #form-escuta {
+        .card-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* MURAL POST-IT INTERATIVO */
+        .mural-container {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 1.5rem;
         }
 
-        input[type="text"], textarea {
-            width: 100%;
+        .mural-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .mural-form input {
+            flex: 1;
             padding: 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            background-color: var(--bg-color);
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            background: var(--bg-color);
             color: var(--text-color);
         }
 
-        .mensagem-oculta {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background-color: rgba(74, 144, 226, 0.1);
-            border-left: 4px solid var(--primary-color);
-            border-radius: 5px;
+        .mural-posts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .motivacional-box {
-            margin-top: 1rem;
-            font-style: italic;
-            color: var(--primary-color);
-        }
-
-        .orientacoes-card {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .orientacoes-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .orientacoes-card li {
-            margin-bottom: 0.5rem;
-        }
-
-        .question-block {
-            margin-bottom: 1.5rem;
+        .post-it {
+            background: #ffea00;
+            color: #000;
             padding: 1rem;
-            border: 1px solid var(--border-color);
             border-radius: 5px;
+            font-weight: 700;
+            width: 180px;
+            min-height: 100px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
         }
 
-        .question-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+        .post-it:nth-child(even) {
+            background: #00f5d4;
+            transform: rotate(3deg);
         }
 
-        #resultado-quiz {
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: bold;
+        /* BOTÕES ESTILIZADOS */
+        .btn {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 0px var(--secondary);
+            transition: all 0.1s;
         }
 
-        .ref-list {
-            list-style: none;
-            margin-top: 1rem;
+        .btn:active {
+            transform: translateY(3px);
+            box-shadow: none;
         }
 
-        .ref-list li {
-            margin-bottom: 0.8rem;
-        }
-
-        .ref-list a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
+        /* BOTÃO VOLTAR AO TOPO */
         #btn-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
             display: none;
-            background-color: var(--primary-color);
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 0.8rem;
+            padding: 0.8rem 1rem;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 0px #000;
         }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            font-weight: bold;
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
-            header, .hero-section {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            header, .hero { flex-direction: column; text-align: center; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -265,187 +277,145 @@
 
     <header>
         <div class="logo">
-            <i class="fa-solid fa-heart-pulse"></i> Mente Em Foco
+            <i class="fa-solid fa-bolt"></i> CONECTA ESTUDANTE
         </div>
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#escuta">Portal de Escuta</a></li>
-                <li><a href="#quiz">Quiz Interativo</a></li>
-                <li><a href="#referencias">Referências</a></li>
+                <li><a href="#conexao">Espaço Conexão</a></li>
+                <li><a href="#mural">Mural da Turma</a></li>
+                <li><a href="#guia">Guia Real</a></li>
+                <li><a href="#fontes">Fontes</a></li>
             </ul>
         </nav>
         <div class="accessibility-controls">
-            <button id="btn-font" title="Aumentar Fonte"><i class="fa-solid fa-text-height"></i></button>
-            <button id="btn-theme" title="Alternar Modo Escuro"><i class="fa-solid fa-moon"></i></button>
+            <button id="btn-theme"><i class="fa-solid fa-moon"></i></button>
+            <button id="btn-font">A+</button>
         </div>
     </header>
 
     <main>
-        <section id="inicio" class="hero-section">
-            <div class="hero-content">
-                <h1>Sua saúde emocional é importante para nós!</h1>
-                <p>Bem-vindo ao Portal de Apoio ao Estudante. Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar. Você não está sozinho(a)!</p>
-                <a href="#escuta" class="btn-primary">Precisa conversar? Acesse a Escuta</a>
+        <section id="inicio" class="hero">
+            <span class="sticker sticker-top-right">✨ 100% Livre de Julgamento</span>
+            <div class="hero-text">
+                <h1>Seu espaço de apoio na rotina escolar</h1>
+                <p>O ambiente de estudos pode ser puxado, mas ninguém precisa encarar isso sozinho. Aqui você encontra ideias práticas de empatia, apoio mútuo e orientações de verdade.</p>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Grupo de estudantes se apoiando">
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="escuta" class="content-section">
-            <h2><i class="fa-solid fa-comments"></i> Portal de Escuta SIMULADO</h2>
-            <p>Este é um espaço seguro para desabafar. <strong>Aviso:</strong> Nenhuma informação digitada neste formulário é enviada ou armazenada.</p>
-
-            <form id="form-escuta">
-                <label for="nome">Nome ou Apelido (Opcional):</label>
-                <input type="text" id="nome" placeholder="Como quer ser chamado(a)?">
-
-                <label for="desabafo">Seu Desabafo:</label>
-                <textarea id="desabafo" rows="5" placeholder="Escreva aqui o que está sentindo..." required></textarea>
-
-                <button type="submit" class="btn-primary">Enviar Desabafo</button>
-            </form>
-
-            <div id="mensagem-acolhimento" class="mensagem-oculta">
-                <h3><i class="fa-solid fa-circle-check"></i> Obrigado por compartilhar!</h3>
-                <p id="texto-resposta"></p>
-                <div class="motivacional-box">
-                    <i class="fa-solid fa-quote-left"></i>
-                    <span id="frase-motivacional"></span>
-                </div>
-            </div>
-
-            <div class="orientacoes-card">
-                <h3><i class="fa-solid fa-hands-holding-child"></i> Onde buscar ajuda de verdade?</h3>
-                <ul>
-                    <li><i class="fa-solid fa-user-graduate"></i> Um(a) professor(a) ou pedagogo(a) da escola</li>
-                    <li><i class="fa-solid fa-school"></i> A direção escolar</li>
-                    <li><i class="fa-solid fa-house-user"></i> Seus pais ou um familiar de confiança</li>
-                    <li><i class="fa-solid fa-phone"></i> <strong>CVV:</strong> Ligue 188 (Gratuito e confidencial)</li>
-                </ul>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=80" alt="Estudantes unidos">
             </div>
         </section>
 
-        <hr>
-
-        <section id="quiz" class="content-section">
-            <h2><i class="fa-solid fa-brain"></i> Quiz Interativo</h2>
-            <p>Responda às 5 perguntas abaixo sobre saúde emocional e convivência escolar.</p>
-
-            <div id="quiz-container">
-                <div class="question-block">
-                    <p class="question-title">1. Um colega de sala está quieto e isolado há dias. Qual a atitude mais empática?</p>
-                    <label><input type="radio" name="q1" value="0"> Ignorar, é o jeito dele.</label><br>
-                    <label><input type="radio" name="q1" value="1"> Oferecer apoio, perguntar se está tudo bem e ouvir sem julgar.</label><br>
-                    <label><input type="radio" name="q1" value="0"> Fazer brincadeiras para ver se ele "acorda".</label>
+        <section id="conexao">
+            <span class="sticker sticker-top-right">💡 Boa Convivência</span>
+            <h2><i class="fa-solid fa-handshake-angle"></i> Espaço Conexão</h2>
+            <p>Atitudes simples transformam a convivência na escola. Confira como fazer a diferença:</p>
+            
+            <div class="grid-cards">
+                <div class="card-item">
+                    <h3>🤝 Escuta Ativa</h3>
+                    <p>Quando um colega quiser conversar, apenas ouça sem dar palpites precipitados ou diminuir o problema dele.</p>
                 </div>
-
-                <div class="question-block">
-                    <p class="question-title">2. O que caracteriza o Bullying no ambiente escolar?</p>
-                    <label><input type="radio" name="q2" value="0"> Uma discussão pontual entre dois amigos.</label><br>
-                    <label><input type="radio" name="q2" value="1"> Atos repetitivos de violência física ou psicológica sem motivação evidente.</label><br>
-                    <label><input type="radio" name="q2" value="0"> Discordar da opinião de alguém durante um trabalho de grupo.</label>
+                <div class="card-item">
+                    <h3>🚫 Zero Bullying</h3>
+                    <p>Piadas repetitivas que incomodam o outro não são brincadeiras. Respeito às diferenças fortalece a turma inteira.</p>
                 </div>
-
-                <div class="question-block">
-                    <p class="question-title">3. O que fazer se perceber que está sobrecarregado(a) com os estudos?</p>
-                    <label><input type="radio" name="q3" value="1"> Organizar pausas, praticar autocuidado e conversar com professores ou responsáveis.</label><br>
-                    <label><input type="radio" name="q3" value="0"> Guardar para si e estudar até de madrugada sem descansar.</label><br>
-                    <label><input type="radio" name="q3" value="0"> Desistir das aulas.</label>
+                <div class="card-item">
+                    <h3>⚡ Limites Saudáveis</h3>
+                    <p>Saber dizer 'não' para tarefas acumuladas e organizar horários de descanso é essencial para sua mente.</p>
                 </div>
-
-                <div class="question-block">
-                    <p class="question-title">4. Pedir ajuda para cuidar da saúde mental é sinal de:</p>
-                    <label><input type="radio" name="q4" value="0"> Fraqueza e incapacidade.</label><br>
-                    <label><input type="radio" name="q4" value="1"> Coragem, autoconhecimento e maturidade.</label><br>
-                    <label><input type="radio" name="q4" value="0"> Exagero e drama.</label>
-                </div>
-
-                <div class="question-block">
-                    <p class="question-title">5. Se um amigo confidenciar que precisa de ajuda médica para a saúde emocional, você deve:</p>
-                    <label><input type="radio" name="q5" value="0"> Contar para toda a turma.</label><br>
-                    <label><input type="radio" name="q5" value="1"> Apoiar a decisão dele e incentivá-lo a procurar profissionais com a família.</label><br>
-                    <label><input type="radio" name="q5" value="0"> Dizer que é bobagem.</label>
-                </div>
-
-                <button id="btn-submit-quiz" class="btn-primary">Ver Resultado</button>
-                <div id="resultado-quiz"></div>
             </div>
         </section>
 
-        <hr>
+        <section id="mural">
+            <span class="sticker sticker-top-right">📌 Interativo</span>
+            <h2><i class="fa-solid fa-note-sticky"></i> Mural do Apoio</h2>
+            <p>Deixe um recado motivacional ou uma dica positiva para outros estudantes da escola:</p>
+            <br>
+            <div class="mural-container">
+                <form class="mural-form" id="form-mural">
+                    <input type="text" id="input-post" placeholder="Escreva um recado positivo..." required>
+                    <button type="submit" class="btn">Colar Recado</button>
+                </form>
 
-        <section id="referencias" class="content-section">
-            <h2><i class="fa-solid fa-bookmark"></i> Referências</h2>
-            <ul class="ref-list">
-                <li><a href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ministério da Saúde (Brasil)</a></li>
-                <li><a href="https://www.unicef.org/brazil/saude-mental-dos-adolescentes" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> UNICEF Brasil</a></li>
-                <li><a href="https://cvv.org.br/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> CVV - Centro de Valorização da Vida</a></li>
+                <div class="mural-posts" id="posts-container">
+                    <div class="post-it">"Você é capaz de superar essa semana de provas!"</div>
+                    <div class="post-it">"Lembre-se de beber água e descansar hoje!"</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guia">
+            <span class="sticker sticker-top-right">🆘 Ajuda Real</span>
+            <h2><i class="fa-solid fa-compass"></i> Guia Prático de Apoio</h2>
+            <p>Precisando de ajuda ou orientação fora da internet? Procure estes caminhos:</p>
+            <br>
+            <div class="grid-cards">
+                <div class="card-item">
+                    <h3>🏫 Na Escola</h3>
+                    <p>Procure a equipe pedagógica, direção ou um professor de confiança para conversar com total sigilo.</p>
+                </div>
+                <div class="card-item">
+                    <h3>📞 Ligação Gratuita</h3>
+                    <p><strong>CVV (Centro de Valorização da Vida):</strong> Disque <strong>188</strong> a qualquer hora para conversa confiável.</p>
+                </div>
+                <div class="card-item">
+                    <h3>🏠 Em Casa</h3>
+                    <p>Converse com seus pais ou um responsável adulto com quem você se sinta confortável.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fontes">
+            <h2><i class="fa-solid fa-link"></i> Fontes Confiáveis</h2>
+            <ul style="list-style-type: square; margin-left: 1.5rem; line-height: 2;">
+                <li><a href="https://www.gov.br/saude/pt-br" target="_blank" style="color: var(--primary); font-weight: bold;">Ministério da Saúde</a></li>
+                <li><a href="https://www.unicef.org/brazil/" target="_blank" style="color: var(--primary); font-weight: bold;">UNICEF Brasil</a></li>
+                <li><a href="https://cvv.org.br/" target="_blank" style="color: var(--primary); font-weight: bold;">CVV - Apoio Emocional</a></li>
             </ul>
         </section>
     </main>
 
-    <button id="btn-top" title="Voltar ao Topo"><i class="fa-solid fa-arrow-up"></i></button>
+    <button id="btn-top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <footer>
-        <p>&copy; 2026 - Portal de Apoio ao Estudante | Projeto Educacional</p>
+        <p>© 2026 Conecta Estudante - Projeto Escolar</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Portal de Escuta
-            const formEscuta = document.getElementById('form-escuta');
-            const msgAcolhimento = document.getElementById('mensagem-acolhimento');
-            const textoResposta = document.getElementById('texto-resposta');
-            const fraseMotivacional = document.getElementById('frase-motivacional');
-
-            const frases = [
-                "Sua voz importa. Não guarde o peso do mundo apenas para você.",
-                "Pedir ajuda não é sinal de fraqueza, mas de extrema coragem.",
-                "Dias difíceis passam. Lembre-se de ser gentil consigo mesmo(a).",
-                "Você não precisa resolver tudo hoje. Vá no seu tempo."
-            ];
-
-            formEscuta.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const nome = document.getElementById('nome').value.trim() || "Estudante";
-                textoResposta.innerText = `Olá, ${nome}. Ouvimos você! Lembre-se de que seus sentimentos são válidos e que sempre há pessoas dispostas a te apoiar.`;
-                fraseMotivacional.innerText = frases[Math.floor(Math.random() * frases.length)];
-                msgAcolhimento.style.display = 'block';
-                formEscuta.reset();
-            });
-
-            // Quiz Interativo
-            const btnSubmitQuiz = document.getElementById('btn-submit-quiz');
-            const divResultado = document.getElementById('resultado-quiz');
-
-            btnSubmitQuiz.addEventListener('click', () => {
-                let pontuacao = 0;
-                for (let i = 1; i <= 5; i++) {
-                    const opcoes = document.getElementsByName(`q${i}`);
-                    for (const opcao of opcoes) {
-                        if (opcao.checked && opcao.value === "1") pontuacao++;
-                    }
-                }
-                divResultado.innerText = `Você acertou ${pontuacao} de 5 perguntas!`;
-                divResultado.style.color = (pontuacao === 5) ? 'green' : 'var(--primary-color)';
-            });
-
-            // Acessibilidade e Tema Escuro
-            document.getElementById('btn-theme').addEventListener('click', () => {
+            // Alternar Modo Escuro
+            const btnTheme = document.getElementById('btn-theme');
+            btnTheme.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
             });
 
-            let fontGrande = false;
-            document.getElementById('btn-font').addEventListener('click', () => {
-                document.documentElement.style.setProperty('--font-size', fontGrande ? '16px' : '18px');
-                fontGrande = !fontGrande;
+            // Alterar Tamanho da Fonte
+            const btnFont = document.getElementById('btn-font');
+            let grande = false;
+            btnFont.addEventListener('click', () => {
+                document.body.style.fontSize = grande ? '1rem' : '1.15rem';
+                grande = !grande;
             });
 
-            // Voltar ao Topo
+            // Adicionar Recado ao Mural Interativo
+            const formMural = document.getElementById('form-mural');
+            const inputPost = document.getElementById('input-post');
+            const postsContainer = document.getElementById('posts-container');
+
+            formMural.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const texto = inputPost.value.trim();
+                if (texto !== '') {
+                    const novoPost = document.createElement('div');
+                    novoPost.className = 'post-it';
+                    novoPost.innerText = `"${texto}"`;
+                    postsContainer.prepend(novoPost);
+                    inputPost.value = '';
+                }
+            });
+
+            // Botão Voltar ao Topo
             const btnTop = document.getElementById('btn-top');
             window.addEventListener('scroll', () => {
                 btnTop.style.display = (window.scrollY > 300) ? 'block' : 'none';
